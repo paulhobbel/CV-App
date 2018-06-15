@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018 Paul Hobbel. All rights reserved.
+  ~ Licensed under the MIT License. See LICENSE in the project root for license information.
+  -->
+
+<resources>
+    <string name="profile">Profiel</string>
+    <string name="certificates">Diploma\'s</string>
+    <string name="projects">Projecten</string>
+    <string name="experiences">Ervaringen</string>
+    <string name="start_date">Start: %1$s</string>
+    <string name="end_date">Einde: %1$s</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018 Paul Hobbel. All rights reserved.
+  ~ Licensed under the MIT License. See LICENSE in the project root for license information.
+  -->
+
+<resources>
+    <color name="colorPrimary">#4caf50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorPrimaryLight">#c8e6c9</color>
+    <color name="colorAccent">#ff9800</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorDivider">#bdbdbd</color>
+</resources>

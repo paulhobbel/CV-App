@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2018 Paul Hobbel. All rights reserved.
+  ~ Licensed under the MIT License. See LICENSE in the project root for license information.
+  -->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Theme.CV" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:shadowColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.CV.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.CV.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

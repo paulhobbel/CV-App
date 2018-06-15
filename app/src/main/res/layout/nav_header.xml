@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018 Paul Hobbel. All rights reserved.
+  ~ Licensed under the MIT License. See LICENSE in the project root for license information.
+  -->
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="?attr/colorPrimaryDark"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <!--<ImageView-->
+    <!--android:id="@+id/image_header_drawer"-->
+    <!--android:layout_width="98dp"-->
+    <!--android:layout_height="98dp"-->
+    <!--android:layout_marginTop="24dp"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/title_header_drawer"-->
+    <!--app:layout_constraintStart_toStartOf="@+id/title_header_drawer"-->
+    <!--app:layout_constraintTop_toTopOf="parent"-->
+    <!--app:srcCompat="@color/colorPrimaryLight" />-->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/drawerProfileImage"
+        android:layout_width="98dp"
+        android:layout_height="98dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_profile"
+        app:civ_border_color="@color/colorPrimaryLight"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/drawerProfileName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/drawerProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paulhobbel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorPrimaryLight"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/drawerProfileEmail"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/drawerProfileEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="paulhobbel@hotmail.com"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/colorPrimaryLight"
+        app:layout_constraintBottom_toTopOf="@+id/drawerProfileNumber"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/drawerProfileNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="06-12189992"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/colorPrimaryLight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
