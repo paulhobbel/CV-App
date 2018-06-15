@@ -15,7 +15,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
 import butterknife.BindView;
@@ -25,7 +24,8 @@ import me.paulhobbel.cvapp.fragments.NavigationFragment;
 import me.paulhobbel.cvapp.fragments.ProfileFragment;
 import me.paulhobbel.cvapp.fragments.ProjectsFragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationActivity, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationActivity,
+        NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -63,12 +63,6 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        //navigationView.setCheckedItem(R.id.nav_profile);
-    }
-
-    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
 
@@ -83,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if(fragment != null) {
+            // Little bit tricky, but as long as .replace is used and no other fragments are
+            // added to this activity we should be fine
             if(fragmentManager.getFragments().get(0).getClass() != fragment.getClass()) {
                 fragmentManager.popBackStack();
                 fragmentManager.beginTransaction()
@@ -90,8 +86,6 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
                         .addToBackStack(null)
                         .commit();
             }
-
-            //drawerLayout.closeDrawers();
 
             return true;
         }

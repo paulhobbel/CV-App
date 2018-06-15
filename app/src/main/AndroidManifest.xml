@@ -26,10 +26,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:launchMode="singleTask"
-            android:name=".activities.ProjectsActivity"
-            android:label="@string/projects" />
-        <activity
             android:name=".activities.ProjectActivity"
             android:parentActivityName=".activities.ProjectsActivity"
             tools:targetApi="jelly_bean">
