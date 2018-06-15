@@ -5,8 +5,6 @@
 
 package me.paulhobbel.cvapp.activities;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +22,8 @@ import me.paulhobbel.cvapp.R;
 import me.paulhobbel.cvapp.fragments.NavigationFragment;
 import me.paulhobbel.cvapp.fragments.ProfileFragment;
 import me.paulhobbel.cvapp.fragments.ProjectsFragment;
+import me.paulhobbel.cvapp.models.Contact;
+import me.paulhobbel.cvapp.utils.ContactUtils;
 
 public class MainActivity extends AppCompatActivity implements NavigationActivity,
         NavigationView.OnNavigationItemSelectedListener {
@@ -31,11 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
     DrawerLayout drawerLayout;
     @BindView(R.id.nav_view)
     NavigationView navigationView;
-
-    public static Intent createIntent(Context context) {
-        return new Intent(context, MainActivity.class);
-    }
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +41,19 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
         ButterKnife.bind(this);
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        navigationView.getHeaderView(0)
+                .findViewById(R.id.drawerProfileContainer)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Contact me = new Contact(
+                                "Paul Hobbel",
+                                "paulhobbel@hotmail.com",
+                                "+31612189992");
+                        ContactUtils.addContactActivity(MainActivity.this, me);
+                    }
+                });
 
         getSupportFragmentManager()
                 .beginTransaction()
