@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  */
 
-package me.paulhobbel.cvapp.models;
+package me.paulhobbel.cvapp.providers.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -31,16 +31,17 @@ public class Item implements Parcelable {
     private String description;
     private LocalDate startDate;
     private LocalDate endDate;
+    //private String image;
 
-    @DrawableRes
-    private int imageRes;
+    //@DrawableRes
+    private String image;
 
     public Item(Builder builder) {
         this.name = builder.name;
         this.description = builder.description;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;
-        this.imageRes = builder.imageRes;
+        this.image = builder.image;
     }
 
     protected Item(Parcel in) {
@@ -48,7 +49,7 @@ public class Item implements Parcelable {
         description = in.readString();
         startDate = (LocalDate) in.readSerializable();
         endDate = (LocalDate) in.readSerializable();
-        imageRes = in.readInt();
+        image = in.readString();
     }
 
     public String getName() {
@@ -75,8 +76,8 @@ public class Item implements Parcelable {
         return endDate;
     }
 
-    public int getImageRes() {
-        return imageRes;
+    public String getImage() {
+        return image;
     }
 
     public boolean isFinished() {
@@ -94,7 +95,7 @@ public class Item implements Parcelable {
         dest.writeString(description);
         dest.writeSerializable(startDate);
         dest.writeSerializable(endDate);
-        dest.writeInt(imageRes);
+        dest.writeString(image);
     }
 
     public abstract static class Builder<B extends Builder<B, I>, I extends Item> {
@@ -103,8 +104,7 @@ public class Item implements Parcelable {
         LocalDate startDate;
         LocalDate endDate;
 
-        @DrawableRes
-        int imageRes;
+        String image;
 
         public B setName(String name) {
             this.name = name;
@@ -126,8 +126,8 @@ public class Item implements Parcelable {
             return getThis();
         }
 
-        public B setImageRes(@DrawableRes int imageRes) {
-            this.imageRes = imageRes;
+        public B setImage(String image) {
+            this.image = image;
             return getThis();
         }
 

@@ -3,11 +3,10 @@
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  */
 
-package me.paulhobbel.cvapp.models;
+package me.paulhobbel.cvapp.providers.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.StringRes;
 
 public class Experience extends Item implements Parcelable {
 
@@ -23,37 +22,31 @@ public class Experience extends Item implements Parcelable {
         }
     };
 
-    private String job;
     private String company;
 
     public Experience(Parcel in) {
         super(in);
-        job = in.readString();
         company = in.readString();
     }
 
     public Experience(Builder builder) {
         super(builder);
-        job = builder.job;
         company = builder.company;
+    }
+
+    public String getCompany() {
+        return company;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
-        dest.writeString(job);
         dest.writeString(company);
     }
 
     public static class Builder extends Item.Builder<Builder, Experience> {
 
-        String job;
         String company;
-
-        public Builder setJob(String job) {
-            this.job = job;
-            return getThis();
-        }
 
         public Builder setCompany(String company) {
             this.company = company;
