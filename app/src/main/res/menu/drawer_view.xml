@@ -15,9 +15,9 @@
             android:icon="@drawable/ic_menu_projects"
             android:title="@string/projects" />
         <item
-            android:id="@+id/nav_certificates"
+            android:id="@+id/nav_diplomas"
             android:icon="@drawable/ic_menu_certificates"
-            android:title="@string/certificates" />
+            android:title="@string/diplomas" />
         <item
             android:id="@+id/nav_experiences"
             android:icon="@drawable/ic_menu_experiences"

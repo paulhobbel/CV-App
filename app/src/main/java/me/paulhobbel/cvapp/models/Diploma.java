@@ -8,30 +8,30 @@ package me.paulhobbel.cvapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Certificate extends Item implements Parcelable {
+public class Diploma extends Item implements Parcelable {
 
-    public static final Creator<Certificate> CREATOR = new Creator<Certificate>() {
+    public static final Creator<Diploma> CREATOR = new Creator<Diploma>() {
         @Override
-        public Certificate createFromParcel(Parcel in) {
-            return new Certificate(in);
+        public Diploma createFromParcel(Parcel in) {
+            return new Diploma(in);
         }
 
         @Override
-        public Certificate[] newArray(int size) {
-            return new Certificate[size];
+        public Diploma[] newArray(int size) {
+            return new Diploma[size];
         }
     };
 
     private String school;
     private String location;
 
-    public Certificate(Parcel in) {
+    public Diploma(Parcel in) {
         super(in);
         school = in.readString();
         location = in.readString();
     }
 
-    public Certificate(Builder builder) {
+    public Diploma(Builder builder) {
         super(builder);
         school = builder.school;
         location = builder.location;
@@ -52,7 +52,7 @@ public class Certificate extends Item implements Parcelable {
         dest.writeString(location);
     }
 
-    public static class Builder extends Item.Builder<Builder, Certificate> {
+    public static class Builder extends Item.Builder<Builder, Diploma> {
 
         String school;
         String location;
@@ -68,8 +68,8 @@ public class Certificate extends Item implements Parcelable {
         }
 
         @Override
-        public Certificate build() {
-            return new Certificate(this);
+        public Diploma build() {
+            return new Diploma(this);
         }
 
         @Override

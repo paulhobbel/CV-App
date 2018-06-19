@@ -19,9 +19,8 @@ import android.view.View;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.paulhobbel.cvapp.R;
-import me.paulhobbel.cvapp.fragments.CertificatesFragment;
+import me.paulhobbel.cvapp.fragments.DiplomasFragment;
 import me.paulhobbel.cvapp.fragments.ExperienceFragment;
-import me.paulhobbel.cvapp.fragments.ItemsFragment;
 import me.paulhobbel.cvapp.fragments.NavigationFragment;
 import me.paulhobbel.cvapp.fragments.ProfileFragment;
 import me.paulhobbel.cvapp.fragments.ProjectsFragment;
@@ -88,8 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
             case R.id.nav_projects:
                 fragment = ProjectsFragment.newInstance();
                 break;
-            case R.id.nav_certificates:
-                fragment = CertificatesFragment.newInstance();
+            case R.id.nav_diplomas:
+                fragment = DiplomasFragment.newInstance();
                 break;
             case R.id.nav_experiences:
                 fragment = ExperienceFragment.newInstance();

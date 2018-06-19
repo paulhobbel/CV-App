@@ -11,16 +11,16 @@ import android.view.View;
 import java.util.List;
 
 import me.paulhobbel.cvapp.R;
-import me.paulhobbel.cvapp.models.Certificate;
+import me.paulhobbel.cvapp.models.Diploma;
 
-public class CertificateListAdapter extends ItemListAdapter<Certificate, CertificateListAdapter.ViewHolder> {
+public class DiplomaListAdapter extends ItemListAdapter<Diploma, DiplomaListAdapter.ViewHolder> {
 
-    public CertificateListAdapter(List<Certificate> items, OnItemClickListener<Certificate> listener) {
+    public DiplomaListAdapter(List<Diploma> items, OnItemClickListener<Diploma> listener) {
         super(items, R.layout.project_list_item, listener);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Certificate item) {
+    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Diploma item) {
 
     }
 

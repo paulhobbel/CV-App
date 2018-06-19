@@ -11,31 +11,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.paulhobbel.cvapp.R;
-import me.paulhobbel.cvapp.models.Certificate;
+import me.paulhobbel.cvapp.models.Diploma;
 
-public class CertificateGenerator {
-    private static final List<Certificate> certificates = new ArrayList<>();
+public class DiplomaGenerator {
+    private static final List<Diploma> diplomas = new ArrayList<>();
 
     static {
-        new Certificate.Builder()
+        new Diploma.Builder()
                 .setName("Havo")
                 .setSchool("Hoeksch Lyceum")
                 .setLocation("Oud-Beijerland")
                 .setStartDate(LocalDate.of(2012, 9, 1))
                 .setEndDate(LocalDate.of(2017, 5, 25))
                 .setImageRes(R.color.colorPrimaryLight)
-                .buildAndAdd(certificates);
+                .buildAndAdd(diplomas);
 
-        new Certificate.Builder()
+        new Diploma.Builder()
                 .setName("Technische Informatica Bachelor")
                 .setSchool("Avans")
                 .setLocation("Breda")
                 .setStartDate(LocalDate.of(2017, 9, 1))
                 .setImageRes(R.color.colorPrimaryLight)
-                .buildAndAdd(certificates);
+                .buildAndAdd(diplomas);
     }
 
-    public static List<Certificate> certificates() {
-        return certificates;
+    public static List<Diploma> diplomas() {
+        return diplomas;
     }
 }
