@@ -13,6 +13,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
         <item name="android:shadowColor">@android:color/transparent</item>
+        <item name="drawerArrowStyle">@style/Widget.CV.DrawerArrowToggle</item>
     </style>
 
     <style name="Theme.CV.NoStatusBar" />
@@ -20,5 +21,10 @@
     <style name="Theme.CV.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CV.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.CV.DrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
 
 </resources>
