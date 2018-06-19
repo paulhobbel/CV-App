@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name=".CVApplication"
-        android:theme="@style/Theme.CV">
+        android:theme="@style/Theme.CV.NoStatusBar">
         <activity
             android:launchMode="singleTask"
             android:name=".activities.MainActivity">
@@ -27,13 +27,13 @@
         </activity>
         <activity
             android:name=".activities.ProjectActivity"
-            android:parentActivityName=".activities.ProjectsActivity"
+            android:parentActivityName=".activities.MainActivity"
             tools:targetApi="jelly_bean">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.ProjectsActivity" />
+                android:value=".activities.MainActivity" />
         </activity>
     </application>
 

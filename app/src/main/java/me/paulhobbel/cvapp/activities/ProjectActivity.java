@@ -21,7 +21,7 @@ import org.threeten.bp.format.DateTimeFormatter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.paulhobbel.cvapp.R;
-import me.paulhobbel.cvapp.models.Project;
+import me.paulhobbel.cvapp.models.Item;
 
 public class ProjectActivity extends AppCompatActivity {
 
@@ -43,7 +43,7 @@ public class ProjectActivity extends AppCompatActivity {
     @BindView(R.id.projectEndDate)
     TextView projectEndDate;
 
-    public static Intent createIntent(Context context, Project project) {
+    public static Intent createIntent(Context context, Item project) {
         Intent intent = new Intent(context, ProjectActivity.class);
         intent.putExtra(PROJECT_EXTRA, project);
 
@@ -58,7 +58,7 @@ public class ProjectActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        Project project = getIntent().getParcelableExtra(PROJECT_EXTRA);
+        Item project = getIntent().getParcelableExtra(PROJECT_EXTRA);
 
 
         ActionBar actionBar = getSupportActionBar();
@@ -74,9 +74,9 @@ public class ProjectActivity extends AppCompatActivity {
             }
         });
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, d MMM yyyy hh:mm a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, d MMM yyyy");
 
-        projectImage.setImageResource(project.getImage());
+        projectImage.setImageResource(project.getImageRes());
         projectName.setText(project.getName());
         projectName.setVisibility(View.GONE);
         projectDescription.setText(project.getDescription());

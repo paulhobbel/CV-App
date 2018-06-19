@@ -15,6 +15,8 @@
         <item name="android:shadowColor">@android:color/transparent</item>
     </style>
 
+    <style name="Theme.CV.NoStatusBar" />
+
     <style name="Theme.CV.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CV.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

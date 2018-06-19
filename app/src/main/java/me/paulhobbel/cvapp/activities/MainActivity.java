@@ -19,6 +19,9 @@ import android.view.View;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.paulhobbel.cvapp.R;
+import me.paulhobbel.cvapp.fragments.CertificatesFragment;
+import me.paulhobbel.cvapp.fragments.ExperienceFragment;
+import me.paulhobbel.cvapp.fragments.ItemsFragment;
 import me.paulhobbel.cvapp.fragments.NavigationFragment;
 import me.paulhobbel.cvapp.fragments.ProfileFragment;
 import me.paulhobbel.cvapp.fragments.ProjectsFragment;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
     DrawerLayout drawerLayout;
     @BindView(R.id.nav_view)
     NavigationView navigationView;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
                     }
                 });
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, ProfileFragment.newInstance(), ProfileFragment.class.getSimpleName())
-                .commit();
+        if(savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, ProfileFragment.newInstance(), ProfileFragment.class.getSimpleName())
+                    .commit();
+        }
     }
 
     @Override
@@ -82,6 +87,13 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
                 break;
             case R.id.nav_projects:
                 fragment = ProjectsFragment.newInstance();
+                break;
+            case R.id.nav_certificates:
+                fragment = CertificatesFragment.newInstance();
+                break;
+            case R.id.nav_experiences:
+                fragment = ExperienceFragment.newInstance();
+                break;
         }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -97,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
                         .commit();
             }
 
+            drawerLayout.closeDrawers();
             return true;
         }
 
@@ -106,6 +119,5 @@ public class MainActivity extends AppCompatActivity implements NavigationActivit
     @Override
     public void onNavigationFragmentAttach(NavigationFragment fragment) {
         navigationView.setCheckedItem(fragment.getNavigationId());
-        drawerLayout.closeDrawers();
     }
 }
