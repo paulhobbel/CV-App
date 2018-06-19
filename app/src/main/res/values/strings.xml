@@ -17,8 +17,10 @@
     <string name="start_date">Start: %1$s</string>
     <string name="end_date">End: %1$s</string>
 
+    <string name="date_divider">%1$s - %2$s</string>
+    <string name="date_divider_present">%1$s - Present</string>
+
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

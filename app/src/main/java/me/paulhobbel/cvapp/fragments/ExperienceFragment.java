@@ -5,11 +5,14 @@
 
 package me.paulhobbel.cvapp.fragments;
 
+import java.util.List;
+
 import me.paulhobbel.cvapp.R;
 import me.paulhobbel.cvapp.adapters.ExperienceListAdapter;
 import me.paulhobbel.cvapp.adapters.ItemListAdapter;
-import me.paulhobbel.cvapp.generators.ExcperienceGenerator;
-import me.paulhobbel.cvapp.models.Experience;
+import me.paulhobbel.cvapp.providers.BaseProvider;
+import me.paulhobbel.cvapp.providers.ExperienceProvider;
+import me.paulhobbel.cvapp.providers.models.Experience;
 
 public class ExperienceFragment extends ItemsFragment<Experience> {
 
@@ -18,8 +21,13 @@ public class ExperienceFragment extends ItemsFragment<Experience> {
     }
 
     @Override
-    protected ItemListAdapter newAdapter() {
-        return new ExperienceListAdapter(ExcperienceGenerator.experiences(), this);
+    protected BaseProvider newProvider() {
+        return new ExperienceProvider(getContext(), this);
+    }
+
+    @Override
+    protected ItemListAdapter newAdapter(List<Experience> items) {
+        return new ExperienceListAdapter(items, this);
     }
 
     @Override

@@ -5,11 +5,14 @@
 
 package me.paulhobbel.cvapp.fragments;
 
+import java.util.List;
+
 import me.paulhobbel.cvapp.R;
 import me.paulhobbel.cvapp.adapters.DiplomaListAdapter;
 import me.paulhobbel.cvapp.adapters.ItemListAdapter;
-import me.paulhobbel.cvapp.generators.DiplomaGenerator;
-import me.paulhobbel.cvapp.models.Diploma;
+import me.paulhobbel.cvapp.providers.BaseProvider;
+import me.paulhobbel.cvapp.providers.DiplomaProvider;
+import me.paulhobbel.cvapp.providers.models.Diploma;
 
 public class DiplomasFragment extends ItemsFragment<Diploma> {
 
@@ -18,8 +21,13 @@ public class DiplomasFragment extends ItemsFragment<Diploma> {
     }
 
     @Override
-    protected ItemListAdapter newAdapter() {
-        return new DiplomaListAdapter(DiplomaGenerator.diplomas(), this);
+    protected BaseProvider newProvider() {
+        return new DiplomaProvider(getContext(), this);
+    }
+
+    @Override
+    protected ItemListAdapter newAdapter(List<Diploma> items) {
+        return new DiplomaListAdapter(items, this);
     }
 
     @Override

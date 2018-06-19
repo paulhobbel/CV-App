@@ -6,15 +6,21 @@
 package me.paulhobbel.cvapp.adapters;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import org.threeten.bp.format.DateTimeFormatter;
+
 import java.util.List;
 
 import butterknife.BindView;
+import me.paulhobbel.cvapp.CVApplication;
 import me.paulhobbel.cvapp.R;
-import me.paulhobbel.cvapp.models.Experience;
+import me.paulhobbel.cvapp.providers.models.Experience;
 
 public class ExperienceListAdapter extends ItemListAdapter<Experience, ExperienceListAdapter.ViewHolder> {
 
@@ -24,8 +30,24 @@ public class ExperienceListAdapter extends ItemListAdapter<Experience, Experienc
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Experience item) {
-        holder.itemImage.setImageResource(item.getImageRes());
+        //holder.itemImage.setImageResource(item.getImage());
         holder.itemName.setText(item.getName());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
+
+        CVApplication application = CVApplication.getInstance();
+
+        if(item.isFinished()) {
+            holder.experienceDate.setText(application.getString(R.string.date_divider_present, item.getStartDate().format(formatter)));
+        } else {
+            holder.experienceDate.setText(application.getString(R.string.date_divider, item.getStartDate().format(formatter), item.getEndDate().format(formatter)));
+        }
+
+        holder.experienceCompany.setText(item.getCompany());
+
+        Picasso.get().cancelRequest(holder.itemImage);
+        Picasso.get().load(item.getImage()).fit().centerCrop().into(holder.itemImage);
+        Log.d("WOLLA", "onBindViewHolder: " + item.getImage());
     }
 
     @Override
@@ -39,6 +61,11 @@ public class ExperienceListAdapter extends ItemListAdapter<Experience, Experienc
         ImageView itemImage;
         @BindView(R.id.itemName)
         TextView itemName;
+
+        @BindView(R.id.experienceDate)
+        TextView experienceDate;
+        @BindView(R.id.experienceCompany)
+        TextView experienceCompany;
 
         ViewHolder(View itemView) {
             super(itemView);

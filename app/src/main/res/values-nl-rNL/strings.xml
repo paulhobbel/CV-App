@@ -11,4 +11,7 @@
     <string name="experiences">Ervaringen</string>
     <string name="start_date">Start: %1$s</string>
     <string name="end_date">Einde: %1$s</string>
+
+    <string name="date_divider">%1$s - %2$s</string>
+    <string name="date_divider_present">%1$s - Heden</string>
 </resources>

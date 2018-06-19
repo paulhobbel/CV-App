@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import me.paulhobbel.cvapp.models.Item;
+import me.paulhobbel.cvapp.providers.models.Item;
 
 public abstract class ItemListAdapter<T extends Item, R extends ItemListAdapter.ViewHolder> extends RecyclerView.Adapter<R> {
 

@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import butterknife.BindView;
 import me.paulhobbel.cvapp.R;
-import me.paulhobbel.cvapp.models.Project;
+import me.paulhobbel.cvapp.providers.models.Project;
 
 public class ProjectListAdapter extends ItemListAdapter<Project, ProjectListAdapter.ViewHolder> {
 
@@ -24,9 +26,16 @@ public class ProjectListAdapter extends ItemListAdapter<Project, ProjectListAdap
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Project project) {
-        holder.projectImage.setImageResource(project.getImageRes());
+        //holder.projectImage.setImageResource(project.getImage());
         holder.projectName.setText(project.getName());
         holder.projectDescription.setText(project.getDescription());
+
+        Picasso.get().cancelRequest(holder.projectImage);
+        Picasso.get()
+                .load(project.getImage())
+                .fit()
+                .centerCrop()
+                .into(holder.projectImage);
     }
 
     @Override

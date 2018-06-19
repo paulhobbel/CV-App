@@ -6,7 +6,6 @@
 
 <resources>
     <style name="Theme.CV.NoStatusBar">
-        +
         <item name="android:statusBarColor">@android:color/transparent</item>
         <!--<item name="android:windowTranslucentStatus">true</item>-->
     </style>

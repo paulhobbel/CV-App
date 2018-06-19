@@ -16,12 +16,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.threeten.bp.format.DateTimeFormatter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.paulhobbel.cvapp.R;
-import me.paulhobbel.cvapp.models.Item;
+import me.paulhobbel.cvapp.providers.models.Item;
 
 public class ProjectActivity extends AppCompatActivity {
 
@@ -76,12 +78,13 @@ public class ProjectActivity extends AppCompatActivity {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, d MMM yyyy");
 
-        projectImage.setImageResource(project.getImageRes());
         projectName.setText(project.getName());
         projectName.setVisibility(View.GONE);
         projectDescription.setText(project.getDescription());
         projectStartDate.setText(getString(R.string.start_date, project.getStartDate().format(formatter)));
         projectEndDate.setText(getString(R.string.end_date, project.getEndDate().format(formatter)));
+
+        Picasso.get().load(project.getImage()).fit().centerCrop().into(projectImage);
     }
 
 }

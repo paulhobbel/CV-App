@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.ContactsContract;
 
-import me.paulhobbel.cvapp.models.Contact;
+import me.paulhobbel.cvapp.providers.models.Contact;
 
 public class ContactUtils {
     /**

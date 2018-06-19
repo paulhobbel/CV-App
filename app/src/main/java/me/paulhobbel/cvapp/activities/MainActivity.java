@@ -26,7 +26,7 @@ import me.paulhobbel.cvapp.fragments.ExperienceFragment;
 import me.paulhobbel.cvapp.fragments.NavigationFragment;
 import me.paulhobbel.cvapp.fragments.ProfileFragment;
 import me.paulhobbel.cvapp.fragments.ProjectsFragment;
-import me.paulhobbel.cvapp.models.Contact;
+import me.paulhobbel.cvapp.providers.models.Contact;
 import me.paulhobbel.cvapp.utils.ContactUtils;
 
 public class MainActivity extends AppCompatActivity implements NavigationActivity,
